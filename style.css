@@ -1,0 +1,57 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    background: rgba(200, 200, 255, 0.4);
+    font-size: 16px; 
+    font-weight: normal;
+}
+
+.wrapper {
+	text-align: center;
+	padding: 30px 0;
+}
+.stopwatch {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 70px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dcdcdc #f5f5f5 #f5f5f5 #dfdfdf;
+    -webkit-box-shadow: inset 2px 4px 5px 0px rgba(193, 193, 193, 0.2);
+    -moz-box-shadow: inset 2px 4px 5px 0px rgba(193, 193, 193, 0.2);
+    box-shadow: inset 2px 4px 5px 0px rgba(193, 193, 193, 0.2);
+    background: #fff;
+    border-radius: 3px;
+}
+
+.stopwatchForm input {
+	padding: 7px 15px;
+    margin: 0 25px;
+    background: rgba(200, 200, 255, 1);
+    border-radius: 2px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 85px;
+    border: 1px solid #1da6e5;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.laps {
+    margin: 15px;
+    line-height: 1.3em;
+     font-size: 16px; 
+}

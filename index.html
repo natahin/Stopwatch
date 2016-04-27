@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="wrapper watch">
+
+		<div class="stopwatch notactive">00:00:00.0</div>
+		
+		<form name="stopwatchForm" class="stopwatchForm">
+			<input type="button" class="start_stop_btn" value="Start">
+			<input type="button" class="clear_btn" value="Clear"> 
+			<input type="button" class="laps_btn" value="Lap">
+		</form>
+		
+		<div class="laps"></div>
+
+	</div>
+	<br> <br>
+	<div class="wrapper watch">
+
+		<div class="stopwatch notactive">00:00:00.0</div>
+		
+		<form name="stopwatchForm" class="stopwatchForm">
+			<input type="button" class="start_stop_btn" value="Start">
+			<input type="button" class="clear_btn" value="Clear"> 
+			<input type="button" class="laps_btn" value="Lap">
+		</form>
+		
+		<div class="laps"></div>
+
+	</div>
+
+	<script src="jquery.min.js" type="text/javascript"></script>
+	<script src="stopwatch.js" type="text/javascript"></script>
+
+	<script>
+	// jQuery.noConflict();
+	jQuery('.watch').stopwatch();
+	</script>
+
+</body>
+</html>
