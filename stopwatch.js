@@ -1,4 +1,5 @@
 function Stopwatch($container) {
+    var self = this;
     var container = $($container);
     this.stopwatch = container.find(".stopwatch");
     this.lapsText = container.find(".laps");
@@ -12,40 +13,46 @@ function Stopwatch($container) {
     this.pauseTime = 0;
 
     this.btnClear.on('click', function() {
-        this.clear();
+        self.clear();
     });
 
     this.btnStartStop.on('click', function() {
         console.log(this.stopwatch);
-        if (this.stopwatch.hasClass('notactive')) {
-            this.start();
+        if (self.stopwatch.hasClass('notactive')) {
+            self.start();
         } else {
-            this.stop();
+            self.stop();
         }
     });
     this.btnLaps.on('click', function() {
-        this.createLap();
+        self.createLap();
     });
 }
 
 Stopwatch.prototype.start = function() {
+    var self = this;
     clearInterval(this.timeInterval);
     var newTime;
     this.firstStartTime = new Date().getTime();
     this.timeInterval = setInterval(function() {
-        newTime = (new Date().getTime() - this.firstStartTime + this.pauseTime);
-        this.stopwatch.text(formatTimeToString(newTime));
+        newTime = (new Date().getTime() - self.firstStartTime + self.pauseTime);
+        self.stopwatch.text(formatTimeToString(newTime));
     }, 100);
     this.btnStartStop.attr("value", "Stop");
     this.stopwatch.removeClass("notactive");
+
 };
 
 Stopwatch.prototype.stop = function() {
     clearInterval(this.timeInterval);
     if (this.firstStartTime > 0) {
-        this.pauseTime = this.pauseTime + new Date().getTime - this.firstStartTime;
+        this.pauseTime = this.pauseTime + new Date().getTime() - this.firstStartTime;
+//        console.log();
         this.firstStartTime = 0;
+
     }
+        this.stopwatch.addClass("notactive");
+        this.btnStartStop.attr("value","Start");
 };
 
 Stopwatch.prototype.createLap = function() {
@@ -55,10 +62,11 @@ Stopwatch.prototype.createLap = function() {
 };
 
 Stopwatch.prototype.clear = function() {
+    
     clearInterval(this.timeInterval);
     this.btnStartStop.text("Start");
     this.stopwatch.addClass('notactive');
-    this.stopwatch.text(this.formatTimeToString(0));
+    this.stopwatch.text(formatTimeToString(0));
     this.lapsText.text("");
     this.firstStartTime = 0;
     this.pauseTime = 0;
